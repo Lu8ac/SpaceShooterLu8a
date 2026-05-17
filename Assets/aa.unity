@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &296186905
 RectTransform:
   m_ObjectHideFlags: 0
@@ -723,10 +723,10 @@ MonoBehaviour:
   normalEnemyPrefab: {fileID: 8176986665502152966, guid: 5b91c952829eeb341934302151b30769, type: 3}
   fastEnemyPrefab: {fileID: 2755155842410205247, guid: 3a5713fb2575beb45b33863c8ff9fc83, type: 3}
   warningIndicatorPrefab: {fileID: 8191423072164034319, guid: 79691c788c491934e92997c510633acb, type: 3}
-  initialSpawnInterval: 0.5
-  minimumSpawnInterval: 0.1
-  difficultyRate: 2
-  spawnY: 6
+  initialSpawnInterval: 2
+  minimumSpawnInterval: 0.5
+  difficultyRate: 0.05
+  spawnY: 16
   xMin: -8.5
   xMax: 8.5
 --- !u!4 &722191581
