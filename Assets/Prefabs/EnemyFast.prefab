@@ -181,3 +181,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   speed: 6
   pointValue: 25
+  hitEffectPrefab: {fileID: 4659518703673258001, guid: 2c26082c6f6712b4893afc8883febdf7, type: 3}

@@ -6,8 +6,10 @@ public class Enemy : MonoBehaviour
     public float speed = 3f;
     public int pointValue = 10;
 
-    // Bottom of screen kill zone (world Y)
-    private float killY = -6f;
+    [Header("Hit Effect")]
+    public GameObject hitEffectPrefab;
+
+    private float killY = -16f;
 
     void Update()
     {
@@ -15,23 +17,25 @@ public class Enemy : MonoBehaviour
 
         if (transform.position.y < killY)
         {
-            GameManager.Instance.GameOver();
+            GameManager.Instance.LoseLife();
+            StartCoroutine(GameManager.Instance.ShakeCamera());
             Destroy(gameObject);
         }
     }
 
     public void Die()
     {
+        // Spawn hit effect
+        if (hitEffectPrefab != null)
+            Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
+
         GameManager.Instance.AddScore(pointValue);
         Destroy(gameObject);
     }
 
-    // Backup: destroy on projectile collision via trigger (handled in Projectile too)
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Projectile"))
-        {
             Die();
-        }
     }
 }

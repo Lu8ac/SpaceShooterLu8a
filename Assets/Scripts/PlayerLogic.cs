@@ -5,12 +5,13 @@ public class PlayerLogic : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed = 7f;
-    public float xBoundary = 8.5f;
+    public float xBoundary = 8f;
 
     [Header("Shooting")]
     public GameObject projectilePrefab;
     public Transform firePoint;
     public float fireRate = 0.25f;
+    public GameObject muzzleFlashPrefab;
 
     private float nextFireTime = 0f;
 
@@ -41,6 +42,14 @@ public class PlayerLogic : MonoBehaviour
         {
             nextFireTime = Time.time + fireRate;
             Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+
+            // Muzzle flash
+            if (muzzleFlashPrefab != null)
+            {
+                GameObject flash = Instantiate(muzzleFlashPrefab,
+                    firePoint.position, Quaternion.identity);
+                Destroy(flash, 0.05f);
+            }
         }
     }
 }
